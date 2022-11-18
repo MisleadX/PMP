@@ -6,7 +6,7 @@
                 $fieldValue = $data->{$fieldName.'_full'};
             }
             else if (strlen($fieldValue) > 0) {
-                $fieldValue = asset($fieldValue);
+                $fieldValue = $fieldValue;
             }
             else {
                 $fieldValue = asset('assets/cms/images/no-img.png');

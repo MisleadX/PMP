@@ -230,9 +230,9 @@ class PageController extends _CrudController
             $passingData = $this->passingDataHome;
             $getData->title = $getValue['title'] ?? null;
             $getData->content = $getValue['content'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
+            $getData->image = asset($getValue['image']) ?? null;
             $getData->contact_button = $getValue['contact_button'] ?? null;
-            $getData->image_2 = $getValue['image_2'] ?? null;
+            $getData->image_2 =asset( $getValue['image_2']) ?? null;
             $getData->title_2 = $getValue['title_2'] ?? null;
             $getData->content_2 = $getValue['content_2'] ?? null;
             $getData->title_3 = $getValue['title_3'] ?? null;
@@ -277,9 +277,9 @@ class PageController extends _CrudController
             $passingData = $this->passingDataHome;
             $getData->title = $getValue['title'] ?? null;
             $getData->content = $getValue['content'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
+            $getData->image = asset($getValue['image']) ?? null;
             $getData->contact_button = $getValue['contact_button'] ?? null;
-            $getData->image_2 = $getValue['image_2'] ?? null;
+            $getData->image_2 = asset($getValue['image_2']) ?? null;
             $getData->title_2 = $getValue['title_2'] ?? null;
             $getData->content_2 = $getValue['content_2'] ?? null;
             $getData->title_3 = $getValue['title_3'] ?? null;

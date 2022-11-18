@@ -17,6 +17,34 @@ if (!function_exists('listAllMenu')) {
                 'type' => 1,
             ],
             [
+                'name' => __('general.product'),
+                'icon' => '<i class="nav-icon fa fa-tag"></i>',
+                'title' => __('general.product'),
+                'active' => [
+                    'admin.product.',
+                    'admin.product-category.',
+                ],
+                'type' => 2,
+                'data' => [
+                    [
+                        'name' => __('general.product'),
+                        'title' => __('general.product'),
+                        'active' => ['admin.product.'],
+                        'route' => 'admin.product.index',
+                        'key' => 'product',
+                        'type' => 1
+                    ],
+                    [
+                        'name' => __('general.product_category'),
+                        'title' => __('general.product_category'),
+                        'active' => ['admin.product-category.'],
+                        'route' => 'admin.product-category.index',
+                        'key' => 'product-category',
+                        'type' => 1
+                    ],
+                ],
+            ],
+            [
                 'name' => __('general.setting'),
                 'icon' => '<i class="nav-icon fa fa-gear"></i>',
                 'title' => __('general.setting'),
@@ -114,6 +142,8 @@ if (!function_exists('listAvailablePermission')) {
         foreach ([
                     'admin',
                     'role',
+                    'product',
+                    'product-category'
                  ] as $keyPermission) {
             $listPermission[$keyPermission] = [
                 'list' => [
