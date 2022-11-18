@@ -42,6 +42,14 @@ class InstallingSeeder extends Seeder
         ]);
 
         DB::table('page')->insertGetId([
+            'name' => 'Product Category',
+            'key' => 'product-category',
+            'value' => null,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('page')->insertGetId([
             'name' => 'Product',
             'key' => 'product',
             'value' => null,

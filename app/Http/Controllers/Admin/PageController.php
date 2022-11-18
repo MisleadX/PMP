@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PageController extends _CrudController
 {
     protected $passingDataHome;
-    protected $passingDataContact;
+    protected $passingDataProduct;
 
     public function __construct(Request $request)
     {
@@ -23,25 +23,14 @@ class PageController extends _CrudController
                     'edit' => 'required'
                 ],
             ],
-            'key' => [
-                'edit' => 0,
-            ],
             'title' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'list' => 0
+                'list' => 0,
             ],
-            'content' => [
-                'validate' => [
-                    'edit' => 'required'
-                ],
-                'type' => 'textarea',
-                'list' => 0
-            ],
-            'image' => [
-                'type' => 'image',
-                'list' => 0
+            'key' => [
+                'edit' => 0,
             ],
             'status' => [
                 'validate' => [
@@ -75,73 +64,69 @@ class PageController extends _CrudController
             'key' => [
                 'edit' => 0,
             ],
-            'title' => [
+            'landingpage_title' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
             ],
-            'content' => [
+            'our_product_button_text' => [
+                'validate' => [
+                    'edit' => 'required'
+                ],
+            ],
+            'landingpage_background' => [
+                'type' => 'image',
+                'path' => '/homepage',
+            ],
+            'homepage_title' => [
+                'validate' => [
+                    'edit' => 'required'
+                ],
+            ],
+            'homepage_content' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
                 'type' => 'texteditor',
             ],
-            'image' => [
-                'path' => '/img',
-                'type' => 'image'
+            'homepage_background' => [
+                'type' => 'image',
+                'path' => '/homepage',
             ],
-            'contact_button' => [
-                'validate' => [
-                    'edit' => 'required'
-                ],
-            ],
-            'image_2' => [
+            'about_image' => [
                 'path' => '/img',
                 'type' => 'image',
-                'lang' => 'general.about_image'
             ],
-            'title_2' => [
+            'about_title' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'lang' => 'general.about'
             ],
-            'content_2' => [
+            'about_content' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
                 'type' => 'texteditor',
-                'lang' => 'general.about_content'
             ],
-            'image' => [
-                'path' => '/img',
+            'contact_logo' => [
+                'path' => '/homepage',
                 'type' => 'image'
             ],
-            'title_3' => [
+            'contact_title' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'lang' => 'general.our_vision'
             ],
-            'content_3' => [
+            'contact_name' => [
+                'validate' => [
+                    'edit' => 'required'
+                ],
+            ],
+            'contact_details' => [
                 'validate' => [
                     'edit' => 'required'
                 ],
                 'type' => 'texteditor',
-                'lang' => 'general.our_vision_content'
-            ],
-            'title_4' => [
-                'validate' => [
-                    'edit' => 'required'
-                ],
-                'lang' => 'general.our_mission'
-            ],
-            'content_4' => [
-                'validate' => [
-                    'edit' => 'required'
-                ],
-                'type' => 'texteditor',
-                'lang' => 'general.our_mission_content'
             ],
             'status' => [
                 'validate' => [
@@ -161,7 +146,7 @@ class PageController extends _CrudController
             ]
         ]);
 
-        $this->passingDataContact = generatePassingData([
+        $this->passingDataProduct = generatePassingData([
             'id' => [
                 'create' => 0,
                 'edit' => 0,
@@ -180,9 +165,15 @@ class PageController extends _CrudController
                     'edit' => 'required'
                 ],
             ],
-            'image' => [
-                'path' => '/img',
-                'type' => 'image'
+            'other_category_text' => [
+                'validate' => [
+                    'edit' => 'required'
+                ],
+            ],
+            'filter_text' => [
+                'validate' => [
+                    'edit' => 'required'
+                ],
             ],
             'status' => [
                 'validate' => [
@@ -228,27 +219,25 @@ class PageController extends _CrudController
         $passingData = $this->passingData;
         if($getData->key == 'homepage') {
             $passingData = $this->passingDataHome;
-            $getData->title = $getValue['title'] ?? null;
-            $getData->content = $getValue['content'] ?? null;
-            $getData->image = asset($getValue['image']) ?? null;
-            $getData->contact_button = $getValue['contact_button'] ?? null;
-            $getData->image_2 =asset( $getValue['image_2']) ?? null;
-            $getData->title_2 = $getValue['title_2'] ?? null;
-            $getData->content_2 = $getValue['content_2'] ?? null;
-            $getData->title_3 = $getValue['title_3'] ?? null;
-            $getData->content_3 = $getValue['content_3'] ?? null;
-            $getData->title_4 = $getValue['title_4'] ?? null;
-            $getData->content_4 = $getValue['content_4'] ?? null;
+            $getData->landingpage_title = $getValue['title'] ?? null;
+            $getData->our_product_button_text = $getValue['our_product_button_text'] ?? null;
+            $getData->landingpage_background = asset($getValue['landingpage_background']) ?? null;
+            $getData->homepage_title = $getValue['homepage_title'] ?? null;
+            $getData->homepage_content = $getValue['homepage_content'] ?? null;
+            $getData->homepage_background = asset($getValue['homepage_background']) ?? null;
+            $getData->about_image = asset($getValue['about_image']) ?? null;
+            $getData->about_title = $getValue['about_title'] ?? null;
+            $getData->about_content = $getValue['about_content'] ?? null;
+            $getData->contact_logo = asset($getValue['contact_logo']) ?? null;
+            $getData->contact_title = $getValue['contact_title'] ?? null;
+            $getData->contact_name = $getValue['contact_name'] ?? null;
+            $getData->contact_details = $getValue['contact_details'] ?? null;
         }
-        else if($getData->key == 'contact') {
-            $passingData = $this->passingDataContact;
+        else if($getData->key == 'product') {
+            $passingData = $this->passingDataProduct;
             $getData->title = $getValue['title'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
-        }
-        else {
-            session()->flash('message', __('general.data_not_found'));
-            session()->flash('message_alert', 1);
-            return redirect()->route($this->rootRoute.'.' . $this->route . '.index');
+            $getData->other_category_text = $getValue['other_category_text'] ?? null;
+            $getData->filter_text = $getValue['filter_text'] ?? null;
         }
 
         $data['viewType'] = 'edit';
@@ -275,27 +264,25 @@ class PageController extends _CrudController
         $passingData = $this->passingData;
         if($getData->key == 'homepage') {
             $passingData = $this->passingDataHome;
-            $getData->title = $getValue['title'] ?? null;
-            $getData->content = $getValue['content'] ?? null;
-            $getData->image = asset($getValue['image']) ?? null;
-            $getData->contact_button = $getValue['contact_button'] ?? null;
-            $getData->image_2 = asset($getValue['image_2']) ?? null;
-            $getData->title_2 = $getValue['title_2'] ?? null;
-            $getData->content_2 = $getValue['content_2'] ?? null;
-            $getData->title_3 = $getValue['title_3'] ?? null;
-            $getData->content_3 = $getValue['content_3'] ?? null;
-            $getData->title_4 = $getValue['title_4'] ?? null;
-            $getData->content_4 = $getValue['content_4'] ?? null;
+            $getData->landingpage_title = $getValue['title'] ?? null;
+            $getData->our_product_button_text = $getValue['our_product_button_text'] ?? null;
+            $getData->landingpage_background = asset($getValue['landingpage_background']) ?? null;
+            $getData->homepage_title = $getValue['homepage_title'] ?? null;
+            $getData->homepage_content = $getValue['homepage_content'] ?? null;
+            $getData->homepage_background = asset($getValue['homepage_background']) ?? null;
+            $getData->about_image = asset($getValue['about_image']) ?? null;
+            $getData->about_title = $getValue['about_title'] ?? null;
+            $getData->about_content = $getValue['about_content'] ?? null;
+            $getData->contact_logo = asset($getValue['contact_logo']) ?? null;
+            $getData->contact_title = $getValue['contact_title'] ?? null;
+            $getData->contact_name = $getValue['contact_name'] ?? null;
+            $getData->contact_details = $getValue['contact_details'] ?? null;
         }
-        else if($getData->key == 'contact') {
-            $passingData = $this->passingDataContact;
+        else if($getData->key == 'product') {
+            $passingData = $this->passingDataProduct;
             $getData->title = $getValue['title'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
-        }
-        else {
-            session()->flash('message', __('general.data_not_found'));
-            session()->flash('message_alert', 1);
-            return redirect()->route($this->rootRoute.'.' . $this->route . '.index');
+            $getData->other_category_text = $getValue['other_category_text'] ?? null;
+            $getData->filter_text = $getValue['filter_text'] ?? null;
         }
 
         $data['viewType'] = 'show';
@@ -322,27 +309,25 @@ class PageController extends _CrudController
         $passingData = $this->passingData;
         if($getData->key == 'homepage') {
             $passingData = $this->passingDataHome;
-            $getData->title = $getValue['title'] ?? null;
-            $getData->content = $getValue['content'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
-            $getData->contact_button = $getValue['contact_button'] ?? null;
-            $getData->image_2 = $getValue['image_2'] ?? null;
-            $getData->title_2 = $getValue['title_2'] ?? null;
-            $getData->content_2 = $getValue['content_2'] ?? null;
-            $getData->title_3 = $getValue['title_3'] ?? null;
-            $getData->content_3 = $getValue['content_3'] ?? null;
-            $getData->title_4 = $getValue['title_4'] ?? null;
-            $getData->content_4 = $getValue['content_4'] ?? null;
+            $getData->landingpage_title = $getValue['landingpage_title'] ?? null;
+            $getData->our_product_button_text = $getValue['our_product_button_text'] ?? null;
+            $getData->landingpage_background = $getValue['landingpage_background'] ?? null;
+            $getData->homepage_title = $getValue['homepage_title'] ?? null;
+            $getData->homepage_content = $getValue['homepage_content'] ?? null;
+            $getData->homepage_background = $getValue['homepage_background'] ?? null;
+            $getData->about_image = $getValue['about_image'] ?? null;
+            $getData->about_title = $getValue['about_title'] ?? null;
+            $getData->about_content = $getValue['about_content'] ?? null;
+            $getData->contact_logo = $getValue['contact_logo'] ?? null;
+            $getData->contact_title = $getValue['contact_title'] ?? null;
+            $getData->contact_name = $getValue['contact_name'] ?? null;
+            $getData->contact_details = $getValue['contact_details'] ?? null;
         }
-        else if($getData->key == 'contact') {
-            $passingData = $this->passingDataContact;
+        else if($getData->key == 'product') {
+            $passingData = $this->passingDataProduct;
             $getData->title = $getValue['title'] ?? null;
-            $getData->image = $getValue['image'] ?? null;
-        }
-        else {
-            session()->flash('message', __('general.data_not_found'));
-            session()->flash('message_alert', 1);
-            return redirect()->route($this->rootRoute.'.' . $this->route . '.index');
+            $getData->other_category_text = $getValue['other_category_text'] ?? null;
+            $getData->filter_text = $getValue['filter_text'] ?? null;
         }
 
         $getListCollectData = collectPassingData($passingData, $viewType);
@@ -363,34 +348,40 @@ class PageController extends _CrudController
         $value = [];
 
         if($getData->key == 'homepage') {
-            $value['title'] = $data['title'];
-            $value['content'] = $data['content'];
-            $value['image'] = $data['image'] ?? $getData->image;
-            $value['contact_button'] = $data['contact_button'];
-            $value['image_2'] = $data['image_2'] ?? $getData->image_2;
-            $value['title_2'] = $data['title_2'];
-            $value['content_2'] = $data['content_2'];
-            $value['title_3'] = $data['title_3'];
-            $value['content_3'] = $data['content_3'];
-            $value['title_4'] = $data['title_4'];
-            $value['content_4'] = $data['content_4'];
-            unset($data['title']);
-            unset($data['content']);
-            unset($data['image']);
-            unset($data['contact_button']);
-            unset($data['image_2']);
-            unset($data['title_2']);
-            unset($data['content_2']);
-            unset($data['title_3']);
-            unset($data['content_3']);
-            unset($data['title_4']);
-            unset($data['content_4']);
+            $value['landingpage_title'] = $data['landingpage_title'];
+            $value['our_product_button_text'] = $data['our_product_button_text'];
+            $value['landingpage_background'] = $data['landingpage_background'] ?? $getData->landingpage_background;
+            $value['homepage_title'] = $data['homepage_title'];
+            $value['homepage_content'] = $data['homepage_content'];
+            $value['homepage_background'] = $data['homepage_background'] ?? $getData->homepage_background;
+            $value['about_image'] = $data['about_image'] ?? $getData->about_image;
+            $value['about_title'] = $data['about_title'];
+            $value['about_content'] = $data['about_content'];
+            $value['contact_logo'] = $data['contact_logo'] ?? $getData->contact_logo;
+            $value['contact_title'] = $data['contact_title'];
+            $value['contact_name'] = $data['contact_name'];
+            $value['contact_details'] = $data['contact_details'];
+            unset($data['landingpage_title']);
+            unset($data['our_product_button_text']);
+            unset($data['landingpage_background']);
+            unset($data['homepage_title']);
+            unset($data['homepage_content']);
+            unset($data['homepage_background']);
+            unset($data['about_image']);
+            unset($data['about_title']);
+            unset($data['about_content']);
+            unset($data['contact_logo']);
+            unset($data['contact_title']);
+            unset($data['contact_name']);
+            unset($data['contact_details']);
         }
-        else if($getData->key == 'contact') {
+        else if($getData->key == 'product') {
             $value['title'] = $data['title'];
-            $value['image'] = $data['image'] ?? $getData->image;
+            $value['other_category_text'] = $data['other_category_text'];
+            $value['filter_text'] = $data['filter_text'];
             unset($data['title']);
-            unset($data['image']);
+            unset($data['other_category_text']);
+            unset($data['filter_text']);
         }
 
         $data['value'] = json_encode($value);

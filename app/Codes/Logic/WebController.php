@@ -19,7 +19,7 @@ class WebController extends Controller
 
         $listPage = [];
         foreach($getPage as $page) {
-            $value = json_decode($page->value, true);
+            $value = json_decode($page->value, true) ?? [];
             $value['name'] = $page->name;
             $listPage[$page->key] = $value;
         }

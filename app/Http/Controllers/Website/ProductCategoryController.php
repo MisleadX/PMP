@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Website;
 
 use App\Codes\Logic\WebController;
-use App\Codes\Models\Product;
+use App\Codes\Models\ProductCategory;
 use Illuminate\Http\Request;
 
-class ProductController extends WebController
+class ProductCategoryController extends WebController
 {
     protected $data;
     protected $request;
@@ -20,15 +20,15 @@ class ProductController extends WebController
     {
         $data = $this->data;
 
-        if(!isset($data['page']['product'])) {
+        if(!isset($data['page']['product-category'])) {
             return redirect()->route('404');
         }
 
-        $getProduct = Product::where('status', 80)->get();
+        $getProductCategory = ProductCategory::where('status', 80)->get();
 
-        $data['product'] = $getProduct ?? [];
+        $data['product_category'] = $getProductCategory ?? [];
 
-        return view(env('WEBSITE_TEMPLATE').'.page.product', $data);
+        return view(env('WEBSITE_TEMPLATE').'.page.product_category', $data);
     }
 
 }

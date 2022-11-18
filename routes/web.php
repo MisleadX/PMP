@@ -55,6 +55,7 @@ Route::group(['prefix' => env('ADMIN_URL'), 'middleware' => ['web']], function (
 
 $router->get('/', ['uses' => 'App\Http\Controllers\Website\HomeController@index'])->name('homepage');
 $router->get('/product', ['uses' => 'App\Http\Controllers\Website\ProductController@index'])->name('product');
+$router->get('/product-category', ['uses' => 'App\Http\Controllers\Website\ProductCategoryController@index'])->name('product-category');
 $router->post('/contact', ['uses' => 'App\Http\Controllers\Website\ContactController@postContact'])->name('postContact');
 
 $router->get('/404', function() {

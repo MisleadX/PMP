@@ -391,10 +391,9 @@ return [
     'error_edit_' => 'Error Edit :field',
     'failed' => 'Failed',
 
-    'users_not_found' => 'Users Tidak Ditemukan',
+    'users_not_found' => 'Users Not Found',
     'failed_add_' => 'Fail To Insert :field',
 
-    'responsible_personnel' => 'Penanggung Jawab',
     'duplicate' => 'Duplicate',
 
     'contact_button' => 'Contact Button',
@@ -405,10 +404,21 @@ return [
     'our_vision_content' => 'Our Vision Content',
     'our_mission_content' => 'Our Mission Content',
     'about_image' => 'About Image',
-
     'subject' => 'Subject',
     'send' => 'Send',
-
     'marked_as_read' => 'Marked as Read',
-    'mark_as_read' => 'Mark as Read'
+    'mark_as_read' => 'Mark as Read',
+    'other_category_text' => 'Other Category Text',
+    'filter_text' => 'Filter Text',
+    'our_product_button_text' => 'Our Product Button Text',
+    'landingpage_title' => 'Landing Page Title',
+    'landingpage_background' => 'Landing Page Background',
+    'homepage_title' => 'Homepage Title',
+    'homepage_content' => 'Homepage Content',
+    'homepage_background' => 'Homepage Background',
+    'about_title' => 'About Title',
+    'contact_logo' => 'Contact Logo',
+    'contact_title' => 'Contact Title',
+    'contact_name' => 'Contact Name',
+    'contact_details' => 'Contact Details'
 ];
