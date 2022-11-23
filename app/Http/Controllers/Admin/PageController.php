@@ -68,6 +68,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
+                'type' => 'texteditor',
             ],
             'our_product_button_text' => [
                 'validate' => [
@@ -219,7 +220,7 @@ class PageController extends _CrudController
         $passingData = $this->passingData;
         if($getData->key == 'homepage') {
             $passingData = $this->passingDataHome;
-            $getData->landingpage_title = $getValue['title'] ?? null;
+            $getData->landingpage_title = $getValue['landingpage_title'] ?? null;
             $getData->our_product_button_text = $getValue['our_product_button_text'] ?? null;
             $getData->landingpage_background = asset($getValue['landingpage_background']) ?? null;
             $getData->homepage_title = $getValue['homepage_title'] ?? null;
@@ -264,7 +265,7 @@ class PageController extends _CrudController
         $passingData = $this->passingData;
         if($getData->key == 'homepage') {
             $passingData = $this->passingDataHome;
-            $getData->landingpage_title = $getValue['title'] ?? null;
+            $getData->landingpage_title = $getValue['landingpage_title'] ?? null;
             $getData->our_product_button_text = $getValue['our_product_button_text'] ?? null;
             $getData->landingpage_background = asset($getValue['landingpage_background']) ?? null;
             $getData->homepage_title = $getValue['homepage_title'] ?? null;

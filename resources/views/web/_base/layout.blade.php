@@ -13,12 +13,14 @@
     @section('css')
         <link rel="stylesheet" href="{{ asset('/assets/cms/css/app.css') }}">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
             body {
                 position: relative;
                 min-height: 100vh;
-                font-family: 'Aquino';
+                font-family: 'Libre Baskerville', serif;
                 max-width: 1280px;
                 margin: 0 auto !important;
+                background: #1A231F;
             }
 
             footer {
@@ -28,21 +30,17 @@
             }
 
             nav {
-                font-size: 24px;
+                font-size: 20px;
+                background: #0B0D0C60;
             }
 
             .navbar-brand {
-                font-size: 24px;
+                font-size: 20px;
                 color: #000000;
             }
 
-            .navbar-nav .nav-item .nav-link {
-                color: #788BFF;
-                /* color: #FFFFFF; */
-            }
-
             .navbar-toggler-icon {
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
 
             #navbarNav ul {
@@ -58,17 +56,14 @@
                 }
             }
 
-            .navbar .navbar-toggler[aria-expanded="true"] nav {
-                background: #FFFFFF;
-            }
-
             .nopadding {
                 padding: 0 !important;
                 margin: 0 !important;
             }
 
-            .footer {
-                background: #788BFF;
+            footer {
+                position: relative;
+                background: #1A231F;
             }
         </style>
     @show
@@ -77,59 +72,45 @@
 </head>
 
 <body>
-    {{-- <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container-lg">
-            <a class="navbar-brand" href="#">VML</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse pl-lg-5" id="navbarNav">
-                <ul class="navbar-nav mx-lg-4 mb-2 mb-lg-0">
-                    @if($page)
-                        @foreach ($page as $key => $pages)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route("$key") }}">{{ $pages['name'] }}</a>
-                            </li>
-                        @endforeach
-                    @endif
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand text-white" href="{{ route('homepage') }}">
+            <img src="{{ asset('web/logo1.png') ?? asset('assets/cms/images/no-img.png') }}" width="65" height="75" class="d-inline-block align-center" alt="Perdana Mandiri Perkasa">erdana mandiri perkasa
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('homepage') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('product') }}">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('homepage') }}#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('homepage') }}#contact">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav> --}}
+    </nav>
 
     <div class="content-section">
         @yield('content')
     </div>
 
-    {{-- <footer>
+    <footer class="mt-5">
         <div class="text-center p-3 footer text-white">
-            Copyright &copy; {{ date('Y') }} <b>VML Digital Solution</b>
+            Copyright &copy; 2022 <b>{{ env('website_name')}}</b>
         </div>
-    </footer> --}}
+    </footer>
 
     @section('script-bottom')
         <script src="{{ asset('/assets/cms/js/app.js') }}"></script>
         <script src="{{ asset('/assets/cms/js/moment.min.js') }}"></script>
-        <script type="text/javascript">
-            var nav = document.querySelector('nav');
-            var navbarNavLink = document.querySelectorAll('#navbarNav .nav-link');
-
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 60) {
-                    nav.classList.add('bg-white', 'shadow')
-                } else {
-                    nav.classList.remove('bg-white', 'shadow');
-                }
-            });
-
-            $('.navbar-toggler').click(function() {
-                if ($(".navbar-toggler").attr("aria-expanded")) {
-                    nav.classList.add('bg-white', 'shadow');
-                }
-            });
-        </script>
         @if (session()->has('message'))
         <?php
         switch (session()->get('message_alert')) {
