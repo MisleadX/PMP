@@ -43,7 +43,6 @@ class ProductController extends _CrudController
                 'path' => '/product',
                 'validate' => [
                     'create' => 'required',
-                    'edit' => 'required'
                 ],
                 'list' => 0
             ],

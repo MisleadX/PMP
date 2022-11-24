@@ -23,18 +23,14 @@ class ContactController extends WebController
     {
         $data = $this->validate($this->request, [
             'g-recaptcha-response' => 'required|captcha',
-            'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|numeric|regex:/(0)[0-9]/',
-            'subject' => 'required',
             'message' => 'required',
         ]);
 
         $contact = Contact::create([
-            'name' => $data['name'] ?? null,
             'email' => $data['email'] ?? null,
             'phone' => $data['phone'] ?? null,
-            'subject' => $data['subject'] ?? null,
             'message' => $data['message'] ?? null,
             'status' => 1,
         ]);

@@ -55,7 +55,6 @@ $homepage = $page['homepage'] ?? [];
         }
 
         #sub {
-            background: #FFC65A;
             border-radius: 30px;
             font-size: 1.5rem;
         }
@@ -67,6 +66,7 @@ $homepage = $page['homepage'] ?? [];
         input[type="text"], input[type="email"], textarea
         {
             background: transparent !important;
+            color: white !important;
         }
     </style>
 @stop
@@ -76,14 +76,14 @@ $homepage = $page['homepage'] ?? [];
         <div class="text-center">
             <h1 class="text-white title">{!! $homepage['landingpage_title'] ?? 'Landing Page Title' !!}</h1>
             <br />
-            <a href="{{ route('product') }}" class="btn btn-warning px-4 py-3" style="border-radius: 30px">
+            <a href="{{ route('product-category') }}" class="btn btn-warning px-4 py-3" style="border-radius: 30px">
                 Our Product <i class="pl-1 fa fa-arrow-right fa-lg"></i>
             </a>
         </div>
     </section>
     <section id="home" class="d-flex align-items-center">
         <div class="text-white col-lg-9 px-5 content">
-            <h1 class="text-white title">{{ $homepage['homepage_title'] ?? 'Homepage Title' }}</h1>
+            <h2 class="text-white title">{{ $homepage['homepage_title'] ?? 'Homepage Title' }}</h2>
             {!! $homepage['homepage_content'] ?? 'Homepage Content' !!}
         </div>
     </section>
@@ -94,7 +94,7 @@ $homepage = $page['homepage'] ?? [];
                     class="img-responsive img-fluid w-75 h-100" alt="About Logo" />
             </div>
             <div class="col-md-7 content">
-                <h1 class="text-white title2">{!! $homepage['about_title'] ?? 'About Title' !!}</h1>
+                <h2 class="text-white title2">{!! $homepage['about_title'] ?? 'About Title' !!}</h2>
                 {!! $homepage['about_content'] ?? 'About Content' !!}
             </div>
         </div>
@@ -132,7 +132,7 @@ $homepage = $page['homepage'] ?? [];
                         @if($errors->has("message")) <div class="invalid-feedback">{{ $errors->first("message") }}</div> @endif
                     </div>
 
-                    <button type="submit" class="btn btn-block text-white" id="sub" title="@lang('general.send')">
+                    <button type="submit" class="btn btn-warning btn-block text-white" id="sub" title="@lang('general.send')">
                         <span class="text-bold"> @lang('general.send')</span></i>
                     </button>
 

@@ -240,6 +240,9 @@ class PageController extends _CrudController
             $getData->other_category_text = $getValue['other_category_text'] ?? null;
             $getData->filter_text = $getValue['filter_text'] ?? null;
         }
+        else {
+            $getData->title = $getValue['title'] ?? null;
+        }
 
         $data['viewType'] = 'edit';
         $data['formsTitle'] = __('general.title_edit', ['field' => $data['thisLabel']]);
@@ -285,6 +288,9 @@ class PageController extends _CrudController
             $getData->other_category_text = $getValue['other_category_text'] ?? null;
             $getData->filter_text = $getValue['filter_text'] ?? null;
         }
+        else {
+            $getData->title = $getValue['title'] ?? null;
+        }
 
         $data['viewType'] = 'show';
         $data['formsTitle'] = __('general.title_show', ['field' => $data['thisLabel']]);
@@ -329,6 +335,9 @@ class PageController extends _CrudController
             $getData->title = $getValue['title'] ?? null;
             $getData->other_category_text = $getValue['other_category_text'] ?? null;
             $getData->filter_text = $getValue['filter_text'] ?? null;
+        }
+        else {
+            $getData->title = $getValue['title'] ?? null;
         }
 
         $getListCollectData = collectPassingData($passingData, $viewType);
@@ -383,6 +392,10 @@ class PageController extends _CrudController
             unset($data['title']);
             unset($data['other_category_text']);
             unset($data['filter_text']);
+        }
+        else {
+            $value['title'] = $data['title'];
+            unset($data['title']);
         }
 
         $data['value'] = json_encode($value);

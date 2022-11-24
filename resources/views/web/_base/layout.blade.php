@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="icon" type="image/x-icon" href="{{ asset('web/logo1.png') }}">
     @show
 
     <title>{{ env('WEBSITE_NAME') }} | @yield('title')</title>
@@ -65,6 +66,24 @@
                 position: relative;
                 background: #1A231F;
             }
+
+            .links:hover {
+                text-decoration: none;
+            }
+
+            .links::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: #FFC65A;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .links:hover::after {
+                transform: scaleX(1);
+            }
         </style>
     @show
     @section('script-top')
@@ -83,16 +102,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('homepage') }}">Home</a>
+                    <a class="nav-link text-white links" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('product') }}">Product</a>
+                    <a class="nav-link text-white links" href="{{ route('product-category') }}">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('homepage') }}#about">About</a>
+                    <a class="nav-link text-white links" href="{{ route('homepage') }}#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('homepage') }}#contact">Contact</a>
+                    <a class="nav-link text-white links" href="{{ route('homepage') }}#contact">Contact</a>
                 </li>
             </ul>
         </div>

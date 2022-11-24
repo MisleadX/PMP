@@ -26,7 +26,6 @@ class ProductCategoryController extends _CrudController
                 'path' => '/product_category',
                 'validate' => [
                     'create' => 'required',
-                    'edit' => 'required'
                 ],
                 'list' => 0
             ],
