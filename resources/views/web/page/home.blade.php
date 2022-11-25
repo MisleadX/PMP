@@ -112,7 +112,7 @@ $homepage = $page['homepage'] ?? [];
             <div class="card-body">
                 <h2 class="text-center title3">{{ $homepage['contact_title'] ?? "Contact Title" }}</h2>
                 <br />
-                {{ Form::open(['route' => ['postContact'], 'files' => true, 'id'=>'form', 'role' => 'form'])  }}
+                {{ Form::open(['route' => ['postContact'], 'method' => 'POST', 'files' => true, 'id'=>'form', 'role' => 'form'])  }}
                     @captcha
                     <div class="form-outline mb-3">
                         <label for="email">{{ __("general.email") }} <span class="text-red">*</span></label>
