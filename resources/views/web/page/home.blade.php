@@ -11,13 +11,13 @@ $homepage = $page['homepage'] ?? [];
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         #landing {
-            background: url("{{ $homepage['landingpage_background'] ? asset($homepage['landingpage_background']) : asset('assets/cms/images/no-img.png') }}");
+            background: url("{{ isset($homepage['landingpage_background']) ? asset($homepage['landingpage_background']) : asset('assets/cms/images/no-img.png') }}");
             background-size: cover;
             min-height: 100vh;
         }
 
         #home {
-            background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("{{ $homepage['homepage_background'] ? asset($homepage['homepage_background']) : asset('assets/cms/images/no-img.png') }}");
+            background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("{{ isset($homepage['homepage_background']) ? asset($homepage['homepage_background']) : asset('assets/cms/images/no-img.png') }}");
             background-size: cover;
             min-height: 100vh;
         }
