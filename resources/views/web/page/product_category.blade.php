@@ -59,10 +59,6 @@ $categoryProduct = $page['product-category'] ?? [];
             max-width: 14rem;
             border-radius: 10px;
         }
-
-        .no-style {
-            text-decoration: none;
-        }
     </style>
 @stop
 

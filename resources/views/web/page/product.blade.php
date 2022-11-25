@@ -25,11 +25,6 @@ $productPage = $page['product'] ?? [];
             color: #FFC65A !important;
         }
 
-        .content {
-            font-size: 1rem;
-            text-align: justify;
-        }
-
         .subtitle {
             color: #74A8F9;
         }
@@ -64,6 +59,29 @@ $productPage = $page['product'] ?? [];
             white-space: nowrap;
             overflow: hidden;
         }
+
+        .card-link:hover {
+            cursor: default;
+            background: #63886D50;
+        }
+
+        input[type="text"]
+        {
+            background: transparent !important;
+            color: white !important;
+        }
+
+        .breadcrumbs {
+            color: #74A8F9;
+        }
+
+        .breadcrumbs:hover {
+            color: #74A8F9;
+        }
+
+        .content {
+            font-size: 0.75rem;
+        }
     </style>
 @stop
 
@@ -71,6 +89,12 @@ $productPage = $page['product'] ?? [];
     <section id="product" class="text-white">
         <div class="d-flex flex-column justify-content-center pl-4 pr-4">
             <h1 class="title2 text-center">{{ $productPage['title'] ?? 'Title' }}</h1>
+            <p class="text-center">
+                <a class="breadcrumbs" href="{{ route('product-category') }}">Product Category</a> 
+                <span class="text-white">></span> 
+                <a class="breadcrumbs" href="{{ route('product', $category->name) }}">{{ $category->name }}</a> 
+            </p>
+            <br />
             <div class="row">
                 <div class="col-md-3">
                     <div class="row">
@@ -89,11 +113,16 @@ $productPage = $page['product'] ?? [];
                                     @endforeach
                             @endif
                         </div>
-                        <div class="col-12 mt-5">
+                        <div class="col-12 mt-3">
                             <h5 class="title3">{{ $productPage['filter_text'] ?? 'Filter' }}</h5>
                             <hr />
-                            {{ Form::open(['route' => ['postContact'], 'files' => true, 'id'=>'form', 'role' => 'form'])  }}
-                                
+                            {{ Form::open(['route' => ['product', $category->name], 'method' => 'GET', 'files' => true, 'id'=>'form', 'role' => 'form'])  }}
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                                    </div>
+                                    {{ Form::text("search", old("search", $search), ['id' => 'search', 'class' => 'form-control', 'placeholder' => 'Search']) }}
+                                </div>
                             {{ Form::close() }}
                         </div>
                     </div>
@@ -104,13 +133,18 @@ $productPage = $page['product'] ?? [];
                             <div class="row">
                                 @if ($product && count($product) > 0)
                                     @foreach ($product as $product)
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="card inside-card p-2 h-100">
-                                                <img src="{{ $product->image_full }}"
-                                                    class="img-responsive img-fluid w-100 mh-category align-self-center"
-                                                    alt="{{ $product->name }}" />
-                                                <p class="title3 text-center m-2 p-1 inside-card">{{ $product->name }}</p>
-                                            </div>
+                                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                            <a href="#" class="no-style">
+                                                <div class="card inside-card p-2 h-100 card-link">
+                                                    <img src="{{ $product->image_full }}"
+                                                        class="img-responsive img-fluid w-100 mh-category align-self-center"
+                                                        alt="{{ $product->name }}" />
+                                                    <p class="title3 text-center m-2 p-1 inside-card">{{ $product->name }}</p>
+                                                    <p class="text-white content mt-2 ml-2 mr-2 p-1">
+                                                        {{ $product->desc }}
+                                                    </p>
+                                                </div>
+                                            </a>
                                         </div>
                                     @endforeach
                                 @else

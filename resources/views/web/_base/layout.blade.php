@@ -84,6 +84,10 @@
             .links:hover::after {
                 transform: scaleX(1);
             }
+
+            .no-style:hover {
+                text-decoration: none;
+            }
         </style>
     @show
     @section('script-top')

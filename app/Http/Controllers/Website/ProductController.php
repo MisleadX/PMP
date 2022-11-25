@@ -25,15 +25,24 @@ class ProductController extends WebController
             return redirect()->route('404');
         }
 
+        $search = $this->request->search;
+
         $getCategory = ProductCategory::where('name', $category)->first();
 
-        $getProduct = Product::where('status', 80)->where('product_category_id', $getCategory->id)->get();
+        $getProduct = Product::where('status', 80)->where('product_category_id', $getCategory->id);
 
-        $getOtherCategory = ProductCategory::where('id', '!=', $getCategory->id)->limit(5)->get();
+        if(strlen($search) > 0) {
+            $getProduct = $getProduct->where('name', 'LIKE', '%'. $search . '%');
+        }
+
+        $getProduct = $getProduct->get();
+
+        $getOtherCategory = ProductCategory::where('id', '!=', $getCategory->id)->get()->random(5);
 
         $data['other_category'] = $getOtherCategory ?? [];
         $data['category'] = $getCategory ?? [];
         $data['product'] = $getProduct ?? [];
+        $data['search'] = $search;
 
         return view(env('WEBSITE_TEMPLATE').'.page.product', $data);
     }
