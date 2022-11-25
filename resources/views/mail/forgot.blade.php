@@ -4,7 +4,7 @@
     <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="header">
         <tr>
             <td colspan="2" align="center" class="header" bgcolor="#ffed7f" style="padding: 15px;">
-                <font color="#e97e84">{{ $contact->subject ?? '' }}</font>
+                <font color="#e97e84">Contact From perdanamandiriperkasa.com</font>
             </td>
         </tr>
         <tr>
@@ -15,9 +15,6 @@
                         <td>
                             <p>
                                 Informasi Pengirim:
-                            </p>
-                            <p>
-                                Name: {{ $contact->name ?? '' }}
                             </p>
                             <p>
                                 Email: {{ $contact->email ?? '' }}
