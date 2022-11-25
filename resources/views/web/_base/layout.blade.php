@@ -127,7 +127,7 @@
 
     <footer class="mt-5">
         <div class="text-center p-3 footer text-white">
-            Copyright &copy; 2022 <b>{{ env('website_name')}}</b>
+            Copyright &copy; 2022 <b>{{ env('WEBSITE_NAME')}}</b>
         </div>
     </footer>
 
