@@ -20,8 +20,8 @@ $categoryProduct = $page['product-category'] ?? [];
         }
 
         .title2 {
-            font-size: 3.5rem;
-            line-height: 5.5rem;
+            font-size: 2rem;
+            line-height: 4rem;
             color: #FFC65A !important;
         }
 
@@ -58,6 +58,14 @@ $categoryProduct = $page['product-category'] ?? [];
             max-height: 14rem;
             max-width: 14rem;
             border-radius: 10px;
+        }
+
+        @media(min-width: 576px) {
+            .title2 {
+                font-size: 3.5rem;
+                line-height: 5.5rem;
+                color: #FFC65A !important;
+            }
         }
     </style>
 @stop
