@@ -99,7 +99,7 @@
         <a class="navbar-brand text-white" href="{{ route('homepage') }}">
             <img src="{{ asset('web/logo1.png') ?? asset('assets/cms/images/no-img.png') }}" 
             width="65" height="75" class="d-inline-block align-center" alt="Perdana Mandiri Perkasa">
-            <span class="d-sm-inline-block d-none">erdana mandiri perkasa</span>
+            <span class="d-sm-inline-block d-none">ERDANA MANDIRI PERKASA</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
