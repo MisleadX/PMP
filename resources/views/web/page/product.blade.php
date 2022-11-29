@@ -20,8 +20,8 @@ $productPage = $page['product'] ?? [];
         }
 
         .title2 {
-            font-size: 3.5rem;
-            line-height: 5.5rem;
+            font-size: 2rem;
+            line-height: 4rem;
             color: #FFC65A !important;
         }
 
@@ -81,6 +81,14 @@ $productPage = $page['product'] ?? [];
 
         .content {
             font-size: 0.75rem;
+        }
+
+        @media(min-width: 576px) {
+            .title2 {
+                font-size: 3.5rem;
+                line-height: 5.5rem;
+                color: #FFC65A !important;
+            }
         }
     </style>
 @stop
