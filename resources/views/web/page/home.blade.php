@@ -23,8 +23,8 @@ $homepage = $page['homepage'] ?? [];
         }
 
         .title {
-            font-size: 3.5rem;
-            line-height: 5.5rem;
+            font-size: 2.5rem;
+            line-height: 4rem;
         }
 
         .title2 {
@@ -68,6 +68,13 @@ $homepage = $page['homepage'] ?? [];
             background: transparent !important;
             color: white !important;
         }
+
+        @media(min-width: 576px) {
+            .title {
+                font-size: 3.5rem;
+                line-height: 5.5rem;
+            }
+        }
     </style>
 @stop
 
@@ -82,7 +89,7 @@ $homepage = $page['homepage'] ?? [];
         </div>
     </section>
     <section id="home" class="d-flex align-items-center">
-        <div class="text-white col-lg-9 px-5 content">
+        <div class="text-white col-lg-9 px-sm-5 px-3 content">
             <h2 class="text-white title">{{ $homepage['homepage_title'] ?? 'Homepage Title' }}</h2>
             {!! $homepage['homepage_content'] ?? 'Homepage Content' !!}
         </div>

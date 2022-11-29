@@ -113,10 +113,10 @@
                 <li class="nav-item">
                     <a class="nav-link text-white links" href="{{ route('product-category') }}">Product</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
                     <a class="nav-link text-white links" href="{{ route('homepage') }}#about">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
                     <a class="nav-link text-white links" href="{{ route('homepage') }}#contact">Contact</a>
                 </li>
             </ul>

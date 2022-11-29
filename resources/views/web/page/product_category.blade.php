@@ -15,8 +15,8 @@ $categoryProduct = $page['product-category'] ?? [];
         }
 
         .title {
-            font-size: 3.5rem;
-            line-height: 5.5rem;
+            font-size: 2.5rem;
+            line-height: 4rem;
         }
 
         .title2 {
@@ -65,6 +65,11 @@ $categoryProduct = $page['product-category'] ?? [];
                 font-size: 3.5rem;
                 line-height: 5.5rem;
                 color: #FFC65A !important;
+            }
+
+            .title {
+                font-size: 3.5rem;
+                line-height: 5.5rem;
             }
         }
     </style>
