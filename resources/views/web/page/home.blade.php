@@ -60,7 +60,7 @@ $homepage = $page['homepage'] ?? [];
         }
 
         #contact, #about {
-            margin-top: 5rem;
+            margin-top: 5rem !important;
         }
 
         input[type="text"], input[type="email"], textarea
@@ -87,19 +87,19 @@ $homepage = $page['homepage'] ?? [];
             {!! $homepage['homepage_content'] ?? 'Homepage Content' !!}
         </div>
     </section>
-    <section id="about" class="pr-md-3 pl-3 pl-md-0 mb-4">
+    <section id="about" class="pr-3 pl-3 pl-md-0 mb-4">
         <div class="row text-white">
             <div class="col-md-5 d-flex align-items-center justify-content-center">
                 <img src="{{ $homepage['about_image'] ?? asset('assets/cms/images/no-img.png') }}"
                     class="img-responsive img-fluid w-75 h-100" alt="About Logo" />
             </div>
-            <div class="col-md-7 content">
+            <div class="col-md-7 content pr-lg-5 pr-md-4 pr-sm-2">
                 <h2 class="text-white title2">{!! $homepage['about_title'] ?? 'About Title' !!}</h2>
                 {!! $homepage['about_content'] ?? 'About Content' !!}
             </div>
         </div>
     </section>
-    <section id="contact" class="row text-white">
+    <section id="contact" class="row text-white nopadding">
         <div class="col-md-5 d-flex flex-column align-items-center justify-content-center">
             <img src="{{ $homepage['contact_logo'] ?? asset('assets/cms/images/no-img.png') }}"
                 class="img-responsive img-fluid w-75 h-100 mb-3" alt="About Logo" />

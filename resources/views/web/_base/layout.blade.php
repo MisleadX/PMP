@@ -19,7 +19,7 @@
                 position: relative;
                 min-height: 100vh;
                 font-family: 'Libre Baskerville', serif;
-                max-width: 1280px;
+                /* max-width: 1280px; */
                 margin: 0 auto !important;
                 background: #1A231F;
             }
@@ -97,7 +97,9 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand text-white" href="{{ route('homepage') }}">
-            <img src="{{ asset('web/logo1.png') ?? asset('assets/cms/images/no-img.png') }}" width="65" height="75" class="d-inline-block align-center" alt="Perdana Mandiri Perkasa">erdana mandiri perkasa
+            <img src="{{ asset('web/logo1.png') ?? asset('assets/cms/images/no-img.png') }}" 
+            width="65" height="75" class="d-inline-block align-center" alt="Perdana Mandiri Perkasa">
+            <span class="d-sm-inline-block d-none">erdana mandiri perkasa</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
