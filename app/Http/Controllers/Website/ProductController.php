@@ -37,7 +37,7 @@ class ProductController extends WebController
 
         $getProduct = $getProduct->get();
 
-        $getOtherCategory = ProductCategory::where('id', '!=', $getCategory->id)->get()->random(5);
+        $getOtherCategory = ProductCategory::inRandomOrder()->where('id', '!=', $getCategory->id)->limit(5)->get();
 
         $data['other_category'] = $getOtherCategory ?? [];
         $data['category'] = $getCategory ?? [];
