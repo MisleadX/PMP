@@ -41,9 +41,6 @@ class ProductController extends _CrudController
             'image' => [
                 'type' => 'image',
                 'path' => '/product',
-                'validate' => [
-                    'create' => 'required',
-                ],
                 'list' => 0
             ],
             'status' => [

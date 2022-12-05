@@ -24,9 +24,6 @@ class ProductCategoryController extends _CrudController
             'image' => [
                 'type' => 'image',
                 'path' => '/product_category',
-                'validate' => [
-                    'create' => 'required',
-                ],
                 'list' => 0
             ],
             'status' => [
