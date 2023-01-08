@@ -68,15 +68,18 @@ class ProductController extends _CrudController
             $passingData
         );
 
+        $filterProductCategory = [0 => 'All'];
         $productCategory = [];
         foreach(ProductCategory::where('status', 80)->pluck('name', 'id')->toArray() as $key => $val) {
             $productCategory[$key] = $val;
+            $filterProductCategory[$key] = $val;
         }
 
         $this->listView['index'] = env('ADMIN_TEMPLATE').'.page.product.list';
 
         $this->data['listSet'] = [
             'product_category_id' => $productCategory,
+            'filter_product_category_id' => $filterProductCategory,
             'status' => get_list_active_inactive(),
         ];
     }

@@ -52,7 +52,7 @@ if ($product_category_id) {
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="product_category_id">{{ __('general.product_category') }}</label>
-                                {{ Form::select('product_category_id', $listSet['product_category_id'], old('product_category_id', $product_category_id), ['class' => 'form-control select2', 'autocomplete' => 'off']) }}
+                                {{ Form::select('product_category_id', $listSet['filter_product_category_id'], old('product_category_id', $product_category_id), ['class' => 'form-control select2', 'autocomplete' => 'off']) }}
                             </div>
                         </div>
 
