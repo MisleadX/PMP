@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Codes\Logic\_CrudController;
 use App\Codes\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends _CrudController
 {
@@ -72,9 +73,42 @@ class ProductController extends _CrudController
             $productCategory[$key] = $val;
         }
 
+        $this->listView['index'] = env('ADMIN_TEMPLATE').'.page.product.list';
+
         $this->data['listSet'] = [
             'product_category_id' => $productCategory,
             'status' => get_list_active_inactive(),
         ];
+    }
+
+    public function dataTable()
+    {
+        $this->callPermission();
+
+        $dataTables = new DataTables();
+
+        $builder = $this->model::query()->select('*');
+
+        if ($this->request->get('product_category_id') && $this->request->get('product_category_id') > 0) {
+            $builder = $builder->where('product_category_id', intval($this->request->get('product_category_id')));
+        }
+
+        $dataTables = $dataTables->eloquent($builder)
+            ->addColumn('action', function ($query) {
+                return view($this->listView['dataTable'], [
+                    'query' => $query,
+                    'thisRoute' => $this->route,
+                    'permission' => $this->permission,
+                    'masterId' => $this->masterId
+                ]);
+            });
+
+        $getResult = $this->renderDataTable($dataTables);
+        $dataTables = $getResult['datatable'];
+        $listRaw = $getResult['listRaw'];
+
+        return $dataTables
+            ->rawColumns($listRaw)
+            ->make(true);
     }
 }
